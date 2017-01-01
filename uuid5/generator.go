@@ -24,3 +24,13 @@ func (u UUIDGenerator) GenerateWithName(name string) (string, error) {
     generated := uuid.NewV5(ns, name)
     return generated.String(), nil
 }
+
+func (u UUIDGenerator) IsValid(ident string) error {
+
+    _, err := uuid.FromString(ident)
+    if err != nil {
+        return err
+    }
+
+    return nil
+}

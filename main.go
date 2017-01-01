@@ -33,6 +33,12 @@ func main() {
             os.Exit(1)
         }
 
+        err = uuidgen.IsValid(generated)
+        if err != nil {
+            println(err.Error())
+            os.Exit(1)
+        }
+
         println(generated)
         os.Exit(0)
     }
